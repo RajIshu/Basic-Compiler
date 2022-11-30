@@ -2,15 +2,3 @@
 
 # Basic Compiler
 
-
-This compiler can perform tokenization till now for alphabets, numbers, operators, Parenthesis.
-
-Example:
-(7+8)
-
-Output:
-{
-number=[7, 8], 
-operator=[+], 
-paren=[(, )]
-}
