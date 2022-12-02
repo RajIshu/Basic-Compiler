@@ -2,13 +2,51 @@ package com.Compiler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
 import java.util.TreeMap;
 
 public class Main {
 
     public static void main(String[] args) {
-	    tokenizer("(7+8)");
+	    tokenizer("(7+8)*9");
+        System.out.println("=======================================");
 
+        parser("(7+8)");
+        parser("(7+8)*9"); // Not Working
+        parser("10/(7+8)*9"); // Not Working
+
+    }
+
+    public static void parser(String input){
+        char[] inputChar = input.toCharArray();
+
+        Stack<Character> stacks = new Stack<>();
+
+        Character[] operators = new Character[]{'+', '-', '*', '/'};
+
+        Character store = null;
+
+        int checker = 0;
+        for(int i = 0; i < input.length(); i++){
+
+            if((Arrays.stream(operators).toList()).contains(inputChar[i])){
+                store = inputChar[i];
+            }
+            else if (inputChar[i] == '(' || inputChar[i] == ')'){
+                stacks.push(inputChar[i]);
+            }
+            else{
+                stacks.push(inputChar[i]);
+                checker++;
+
+                if(checker == 2){
+                    stacks.push(store);
+                    checker = 0;
+                }
+            }
+        }
+
+        System.out.println(stacks);
     }
 
     public static void tokenizer(String input){
@@ -66,7 +104,6 @@ public class Main {
                 cursor++;
             }
         }
-
         System.out.println(code);
 
     }
