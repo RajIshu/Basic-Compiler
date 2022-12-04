@@ -1,5 +1,11 @@
 package com.Compiler;
 
+import javax.swing.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
@@ -7,18 +13,72 @@ public class Main {
     public static TreeMap<String, ArrayList<Character>> code = new TreeMap<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+
+        FileOutputStream f = new FileOutputStream("Output.txt");
+
+        System.setOut(new PrintStream(f));
+//        JFrame frame = new JFrame("My First GUI");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(300,300);
+//        JButton compileButton = new JButton("Compile");
+//        frame.getContentPane().add(compileButton);
+//        frame.setVisible(true);
+        String input = JOptionPane.showInputDialog(null, "Enter your code:", "(7+8)*9");
+
+
         System.out.println("Tokenization:\n============\n");
-        tokenizer("(7+8)");
-	    tokenizer("(7+8)*9");
-        tokenizer("10/(7+8)*9");
+        tokenizer(input);
+//        tokenizer("(7+8)");
+//	    tokenizer("(7+8)*9");
+//        tokenizer("10/(7+8)*9");
         System.out.println("==========================================================\n\n\n");
 
         System.out.println("Parsing:\n=======\n");
-        parser("(7+8)");
-        parser("+78"); // Gives ERROR
-        parser("(7+8)*9");
-        parser("10/(7+8)*9");
+        parser(input);
+//        parser("(7+8)");
+//        parser("+78"); // Gives ERROR
+//        parser("(7+8)*9");
+//        parser("10/(7+8)*9");
+
+        System.out.println("\n\nBinary:");
+        binaryGenerator(input);
+
+    }
+
+    public static void binaryGenerator(String input){
+//        Path path = Paths.get(input);
+//        byte[] bytes = input.getBytes(StandardCharsets.UTF_8);
+//        System.out.println(Arrays.toString(bytes));
+
+        String s = "";
+        char[] ch = input.toCharArray();
+
+        for(char c : ch){
+            s = s + String.format("%8s", Integer.toBinaryString(c));
+        }
+
+        System.out.println(s);
+
+        try {
+            File myObj = new File("Binary.bin");
+//            if (myObj.createNewFile()) {
+//                System.out.println("File created: " + myObj.getName());
+//            } else {
+//                System.out.println("File already exists.");
+//            }
+
+            Path path = Path.of("Binary.bin");
+
+            Files.writeString(path, s);
+//            for(char c : s.toCharArray()){
+//                myWriter.write(c);
+//            }
+            System.out.println("Binary File Generated.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
     }
 
