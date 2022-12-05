@@ -17,9 +17,9 @@ This is a basic compiler which can perform tokenization and basic parsing. It ca
 * [Launch4J](#)
 * [JOptionPane](#)
 
+<!--
 <br/>
 
-<!--
 ## Contributors
 
 * [Ishu Raj](https://github.com/RajIshu)
