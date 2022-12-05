@@ -44,6 +44,9 @@ public class Main {
         System.out.println("\n\nBinary:");
         binaryGenerator(input);
 
+        JOptionPane.showMessageDialog( null, "Output.txt and Binary.bin File Generated.",
+                "Basic Compiler", JOptionPane.PLAIN_MESSAGE );
+
     }
 
     public static void binaryGenerator(String input){
@@ -199,7 +202,7 @@ public class Main {
 
             }
             tab = tab.substring(1);
-            System.out.println(tab + "}]\n\b}");
+            System.out.println(tab + "}]\n}");
 
         }
         catch (Exception e){
