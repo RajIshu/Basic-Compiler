@@ -12,6 +12,7 @@ public class Main {
 
     public static TreeMap<String, ArrayList<Character>> code = new TreeMap<>();
 
+    public static boolean bgCheck = true;
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -32,7 +33,7 @@ public class Main {
 //        tokenizer("(7+8)");
 //	    tokenizer("(7+8)*9");
 //        tokenizer("10/(7+8)*9");
-        System.out.println("==========================================================\n\n\n");
+        System.out.println("\n\n==========================================================\n\n\n");
 
         System.out.println("Parsing:\n=======\n");
         parser(input);
@@ -41,11 +42,17 @@ public class Main {
 //        parser("(7+8)*9");
 //        parser("10/(7+8)*9");
 
-        System.out.println("\n\nBinary:");
-        binaryGenerator(input);
+        if(bgCheck) {
+            System.out.println("\n\nBinary:");
+            binaryGenerator(input);
 
-        JOptionPane.showMessageDialog( null, "Output.txt and Binary.bin File Generated.",
-                "Basic Compiler", JOptionPane.PLAIN_MESSAGE );
+            JOptionPane.showMessageDialog(null, "Output.txt and Binary.bin File Generated.",
+                    "Basic Compiler", JOptionPane.PLAIN_MESSAGE);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Output.txt File Generated.",
+                    "Basic Compiler", JOptionPane.PLAIN_MESSAGE);
+        }
 
     }
 
@@ -209,6 +216,9 @@ public class Main {
             System.out.println("\n ------------------ ");
             System.out.println("| ERROR DETECTED!! |");
             System.out.println(" ------------------ \n");
+
+            System.out.println("\n\n==>FAILED TO COMPILE.<==");
+            bgCheck = false;
         }
     }
 
