@@ -23,13 +23,14 @@ This is a basic compiler which can perform tokenization and basic parsing. It ca
 ## Contributors
 
 * [Ishu Raj](https://github.com/RajIshu)
-* [Isha Sharma](https://github.com/ishyyyy)
-* [Jayendra Vardhan Singh](https://github.com/jayendra-587)
-* [Gourav](#)
 
 -->
 
 <br/>
+
+## Installer
+You can download this compiler's setup and install it on your system from [here](https://upesstd-my.sharepoint.com/:f:/g/personal/500083128_stu_upes_ac_in/EryhWqhl0OdOpf7OkLl6HBUBqiginF4304hkNDt5v0-wJA?e=oXxBvD).
+
 
 ## :people_hugging: Show your support
 Give a ⭐️ if you like this project and want to support it!
