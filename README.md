@@ -28,7 +28,7 @@ This is a basic compiler which can perform tokenization and basic parsing. It ca
 
 <br/>
 
-## ⚙️Installer
+## 	:package: Installer
 You can download this compiler's setup and install it on your system from [here](https://upesstd-my.sharepoint.com/:f:/g/personal/500083128_stu_upes_ac_in/EryhWqhl0OdOpf7OkLl6HBUBqiginF4304hkNDt5v0-wJA?e=oXxBvD).
 
 
